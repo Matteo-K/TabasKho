@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+    <link rel="shortcut icon" href="images/logo/tabaskho-min.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <meta name="author" content="Raphaël BARDINI">
+    <meta name="description" content="Tabas'Kho - The Last of Us - Saison 1">
+    <meta name="keywords" content="tabaskho, saison, the-last-of-us">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabas'Kho</title>
+</head>
+
+<body>
+    <header>
+        <!-- Image Retour à l'acceuil -->
+        <a href="index.html"><img src="images/logo/tabaskho.webp" alt="Logo Tabas'Kho" title="Retour à l'acceuil"
+                width="356" height="356"></a>
+        <div>
+            <h1>Saison</h1>
+            <!-- Barre de Recherche -->
+            <div>
+                <div class="search-input">
+                    <a href="" target="_self" hidden></a>
+                    <input type="text" placeholder="Recherche : ">
+                    <div>
+                        <!-- liste de proposition insérer en javascript -->
+                    </div>
+                    <div><i class="fas fa-search"></i></div>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation dans le fichier -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="#serie"> Série </a>
+                </li>
+                <li>
+                    <a href="#chiffres"> Chiffres </a>
+                </li>
+                <li>
+                    <a href="#acteurs"> Acteurs </a>
+                </li>
+                <li>
+                    <a href="#episodes"> Épisodes </a>
+                </li>
+                <li>
+                    <a href="#contact"> Contact </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main id="page-detail-saison">
+        <div>
+            <section id="serie">
+                <h2>The Last Of Us<br>Saison 1</h2>
+                <div class="bloc-principal">
+                    <figure>
+                        <img src="images/serie/the-last-of-us/image.webp" alt="Affiche The Last Of Us"
+                            title="The Last Of Us" width="285" height="178">
+                        <figcaption>
+                            <p class="corps-de-texte">20 ans après la destruction de la civilisation moderne, Joël, un
+                                survivant aguerri est embauché pour aider Ellie, une jeune fille de 14 ans, à s'échapper
+                                d'une zone de quarantaine oppressive. </p>
+                            <p class="corps-de-texte">Ce qui ne devait être qu'un petit boulot va rapidement tourner en
+                                une aventure déchirante à travers les États-Unis, où ils devront compter sur l'un et
+                                l'autre pour survivre.</p>
+                        </figcaption>
+                    </figure>
+                    <div>
+                        <article id="informations" class="bloc-encadre">
+                            <h4>Réalisation&nbsp;:</h4>
+                            <p>Craig Mazin et Neil Druckmann</p>
+                            <h4>Production&nbsp;:</h4>
+                            <p>Carolyn Strauss et Evan Wells</p>
+                            <h4>Directeur studio&nbsp;:</h4>
+                            <p>Naughty Dog</p>
+                            <h4>Acteurs principaux&nbsp;:</h4>
+                            <p>Pedro Pascal et Bella Ramsey</p>
+                            <h4>Musique&nbsp;:</h4>
+                            <p>Gustavo Santaolalla</p>
+                            <h4>Genres&nbsp;:</h4>
+                            <p>Aventure, Drame, Action, Horreur, Science Fiction</p>
+                        </article>
+                        <div class="zone-boutons">
+                            <a target="_blank" href="infos-backstage.html">Informations backstage</a>
+                            <a target="_blank" href="critiques.html">Critiques</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="lien-retour" href="the-last-of-us.html">Retour à la série</a>
+            </section>
+            <aside>
+                <section id="chiffres">
+                    <h3>Quelques chiffres</h3>
+                    <div>
+                        <div>
+                            <p>Date de sortie</p>
+                            <time datetime="2023-01-15"> 15/01/2023 </time>
+                        </div>
+                        <div>
+                            <p>Durée totale</p>
+                            <time datetime="PT8H44M"> 8h 44m </time>
+                        </div>
+                    </div>
+                </section>
+                <section id="acteurs">
+                    <h3>Acteurs</h3>
+                    <ul>
+                        <li>
+                            <a onclick="detailSaison('#acteurs ul','p + div',0)">
+                                <p>Pedro Pascal</p>
+                                <div>
+                                    <div>
+                                        <p>Acteur</p>
+                                        <p>Chilo-américain</p>
+                                        <p>Rôle&nbsp;: Joel Miller</p>
+                                    </div>
+                                    <img src="images/acteur/pedro-pascal.webp" alt="Pedro Pascal" title="Pedro Pascal"
+                                        width="600" height="800">
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="detailSaison('#acteurs ul','p + div',1)">
+                                <p>Bella Ramsey</p>
+                                <div>
+                                    <div>
+                                        <p>Actrice</p>
+                                        <p>Britannique</p>
+                                        <p>Rôle&nbsp;: Ellie</p>
+                                    </div>
+                                    <img src="images/acteur/bella-ramsey.webp" alt="Bella Ramsey"
+                                        title="Bella Ramsey aux Emmy Awards" width="600" height="800">
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="detailSaison('#acteurs ul','p + div',2)">
+                                <p>Anna Torv</p>
+                                <div>
+                                    <div>
+                                        <p>Actrice</p>
+                                        <p>Australienne</p>
+                                        <p>Rôle&nbsp;: Theresa</p>
+                                    </div>
+                                    <img src="images/acteur/anna-torv.webp" alt="Anna Torv"
+                                        title="Anna Torv aux Grammy Awards" width="600" height="800">
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="detailSaison('#acteurs ul','p + div',3)">
+                                <p>Nico Parker</p>
+                                <div>
+                                    <div>
+                                        <p>Acteur</p>
+                                        <p>Britannique</p>
+                                        <p>Rôle&nbsp;: Sarah</p>
+                                    </div>
+                                    <img src="images/acteur/parker-nico.webp" alt="Parker Nico"
+                                        title="Parker Nico aux Grammy Awards" width="600" height="800">
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="detailSaison('#acteurs ul','p + div',4)">
+                                <p>Storm Reid</p>
+                                <div>
+                                    <div>
+                                        <p>Actrice</p>
+                                        <p>Américaine</p>
+                                        <p>Rôle&nbsp;: Riley Abel</p>
+                                    </div>
+                                    <img src="images/acteur/storm-reid.webp" alt="Storm Reid" title="Storm Reid"
+                                        width="600" height="800">
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="detailSaison('#acteurs ul','p + div',5)">
+                                <p>Murray Bartlett</p>
+                                <div>
+                                    <div>
+                                        <p>Acteur</p>
+                                        <p>Australien</p>
+                                        <p>Rôle&nbsp;: Frank</p>
+                                    </div>
+                                    <img src="images/acteur/murray-bartlett.webp" alt="Murray Bartlett"
+                                        title="Murray Bartlett aux Oscars" width="600" height="800">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
+        <section id="episodes">
+            <h3>Épisodes</h3>
+            <ul>
+                <li>
+                    <img src="images/serie/the-last-of-us/ep1.webp" alt="Épisode 1"
+                        title="Quand tu es perdu dans les ténèbres" width="1060" height="523">
+                    <a onclick="detailSaison('#episodes','article',0)">
+                        <article>
+                            <h4>Épisode 1&nbsp;: Quand tu es perdu dans les ténèbres</h4>
+                            <p>Vingt ans après qu'une épidémie fongique ait ravagé la planète, les survivants Joel et
+                                Ellie sont chargés d'une mission qui pourrait tout changer.</p>
+                            <time datetime="PT1H20M"> 1h 20m </time>
+                        </article>
+                    </a>
+                </li>
+                <li>
+                    <img src="images/serie/the-last-of-us/ep2.webp" alt="Épisode 2" title="Infecté" width="1060"
+                        height="523">
+                    <a onclick="detailSaison('#episodes','article',1)">
+                        <article>
+                            <h4>Épisode 2&nbsp;: Infecté</h4>
+                            <p>Joel, Tess et Ellie traversent un hôtel de Boston abandonné et innondé pour déposer Ellie
+                                avec un groupe de lucioles.</p>
+                            <time datetime="PT0H53M"> 53m </time>
+                        </article>
+                    </a>
+                </li>
+                <li>
+                    <img src="images/serie/the-last-of-us/ep3.webp" alt="Épisode 3" title="Longtemps&hellip;"
+                        width="1060" height="523">
+                    <a onclick="detailSaison('#episodes','article',2)">
+                        <article>
+                            <h4>Épisode 3&nbsp;: Longtemps&hellip;</h4>
+                            <p>Lorsqu'un étranger s'approche de son enceinte, le survivaliste Bill forge une connexion
+                                improbable. Plus tard, Joel et Ellie cherchent les conseils de Bill.</p>
+                            <time datetime="PT1H15M"> 1h 15m </time>
+                        </article>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <address id="contact">
+            <div>
+                <span>Contact par Mail&nbsp;:<br>
+                </span>
+                <a href="mailto:matteo.kervadec@etudiant.univ-rennes1.fr"> matteo.kervadec@etudiant.univ-rennes1.fr </a>
+            </div>
+            <div>
+                <span>Site web créé par&nbsp;:<br>
+                </span>M.Chartier--Le Goff, M.Kervadec, R.Bardini, S.Rolland
+            </div>
+        </address>
+        <nav>
+            <a href="https://discord.com">
+                <img src="images/logo/discord.webp" alt="Logo Discord" title="Nous sommes sur Instagram" height="64"
+                    width="64">
+            </a>
+            <a href="https://twitter.com">
+                <img src="images/logo/x.webp" alt="Logo X" title="Nous sommes sur X" height="64" width="64">
+            </a>
+            <a href="https://www.instagram.com">
+                <img src="images/logo/instagram.webp" alt="Logo Instagram" title="Nous sommes sur Instagram" height="64"
+                    width="64">
+            </a>
+            <a href="https://www.facebook.com">
+                <img src="images/logo/facebook.webp" alt="Logo Facebook" title="Nous sommes sur Facebook" height="64"
+                    width="64">
+            </a>
+        </nav>
+    </footer>
+    <!-- Popup age -->
+    <div id="overlay" class="open">
+        <div>
+            <h2>Âge Requis</h2>
+            <p class="pictogramme-age">+16</p>
+            <div class="zone-boutons">
+                <a href="index.html">Je suis trop jeune</a>
+                <a onclick="togglePopup()" style="cursor: grab;">J'ai l'âge requis</a>
+            </div>
+        </div>
+    </div>
+    <!-- Fichier script pour la barre de recherche -->
+    <script src="js/script.js"></script>
+    <script src="js/suggestions.js"></script>
+</body>
+
+</html>

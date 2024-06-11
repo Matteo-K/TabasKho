@@ -1,0 +1,905 @@
+/* Feuille de style Tabas'Kho */
+
+/* Polices */
+@font-face {
+    font-family: 'etna-sans';
+    src: url('fonts/etna-free-font-webfont.woff2') format('woff2'),
+        url('fonts/etna-free-font-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'lilita-one';
+    src: url('fonts/lilitaone-regular-webfont.woff2') format('woff2'),
+        url('fonts/lilitaone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    /* Variable : facteur de taille des éléments */
+    /* Pourra être changée dans le media queries */
+    /* Exemple : font-size: calc(15 * var(--s)); -> représente une taille de 15 sur Figma */
+    /* À utiliser pour : tout ce qui devrait changer de taille quand on zoome-dézoome */
+    /* C'est-à-dire : pas les marges ou les paddings */
+    /* À ne pas utiliser : quand on exprime des tailles relatives à la font-size de l'élément actuel -> utiliser em */
+    --s: calc(1rem/14);
+
+    /* Variable : facteur de taille des espaces blancs */
+    /* À utiliser pour : marges intérieures et extérieures */
+    --m: 1rem;
+    
+    scroll-behavior: smooth;
+
+    font-size: calc(15 * var(--s));
+    font-family: 'lilita-one', sans-serif;
+}
+
+/* Typographie */
+    p {
+        margin: 0;
+        text-align: left;
+    }
+
+    h1 {
+        font-size: calc(50 * var(--s));
+        text-align: center;
+    }
+
+    h1, h2, h3, h4 {
+        font-family: 'etna-sans', sans-serif;
+        letter-spacing: .05em;
+        margin: 0;
+    }
+
+    a {
+        color: #111;
+        text-decoration: none;
+    }
+
+    a:hover:not(footer a,#episodes a) {
+        text-decoration: underline;
+    }
+
+/* Marges */
+    main {
+        /* empêcher le maring collapsing */
+        display: inline-block;
+    }
+    body, section, header, footer {
+        margin: var(--m);
+    }
+    section {
+        padding: var(--m);
+        height: max-content;
+    }
+
+/* Couleurs */
+    :root {
+        color: #111;
+        background-color: #4E555D;
+    }
+
+    /* Arrière-plan primaire */
+    nav > li, footer > article, address div {
+        background-color: #4E555D;
+        color: #EEE;
+    }
+
+    /* Arrière-plan secondaire */
+    header, footer, section {
+        background-color: #EEE;
+    }
+
+    /* Arrière-plan de mise en valeur */
+    header nav, footer > div {
+        background-color: #FF5722;
+    }
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: max-content;
+}
+
+/* Logo Tabas'kho */
+header img {
+    width: calc(100 * var(--s));
+    height: calc(100 * var(--s));
+    margin: var(--m) calc(2 * var(--m));
+}
+
+/* Barre de recherche */
+/* Définition de l'ensemble de la barre de recherche
+- ajustement à la barre
+*/
+input, input + div + div, h1 + div, .search-input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* Définition de la taille de la barre de recherche */
+h1 + div {
+    max-width: calc(363 * var(--s));
+    margin-bottom: 1em;
+}
+
+.search-input {
+    background: #D9D9D9;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 var(--s) 5px 3px rgba(0,0,0,0.12);
+}
+
+/* -- Définition de la barre de recherche --
+- ajustement de la taille
+*/
+.search-input input {
+    height: calc(31 * var(--s));
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0 calc(60 * var(--s)) 0 calc(20 * var(--s));
+    font-size: calc(18 * var(--s));
+    box-shadow: 0 var(--s) 5px rgba(0,0,0,0.1);
+}
+
+.search-input.active input {
+    border-radius: 5px 5px 0 0;
+}
+
+.search-input input + div {
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    max-height: calc(280 * var(--s));
+    overflow-y: auto;
+    position: absolute;
+    background-color: #D9D9D9;
+    box-shadow: 0 var(--s) 5px rgba(0,0,0,0.1);
+}
+
+.search-input.active input + div {
+    padding: calc(10 * var(--s)) calc(8 * var(--s));
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* -- Définition de la liste de suggestions --
+- liste sans puce
+- ajustement de la position
+*/
+input + div li {
+    list-style: none;
+    padding: calc(8 * var(--s)) calc(12 * var(--s));
+    display: none;
+    cursor: default;
+    border-radius: 3px;
+}
+
+.search-input.active input + div li {
+    display: block;
+}
+
+/* -- Définition de la liste de suggestions au survol --
+- changement de la couleur de fond
+*/
+input + div > li:hover
+input + div > li:active {
+    background: #EEE;
+}
+
+/* -- Définition du logo loupe --
+- ajustement dans la barre de recherche
+- Logo de couleur orange
+- changement du curseur
+*/
+.search-input input + div + div {
+    position: absolute;
+    right: 1em;
+    top: .5em;
+    color: #FF5722;
+    cursor: pointer;
+}
+
+/* Nav dans le document - Header*/
+header nav {
+    margin: calc(20.31 * var(--s)) calc(50 * var(--s));
+    filter: drop-shadow(6px 6px 4px rgba(255, 87, 34, 0.50));
+}
+
+header nav ul {
+    height: 100%;
+    font-size: calc(24 * var(--s));
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    list-style: none;
+}
+
+header nav ul li {
+    height: max-content;
+    margin: calc(.25 * var(--m));
+    padding: 0 var(--m);
+    background-color: #4E555D;
+}
+
+/* Apparence des bouton dans les navigations du nav */
+header nav ul a {
+    color: #EEE;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: calc(35 * var(--s));
+    background-color: #4E555D;
+    border-radius: calc(20 * var(--s)) calc(20 * var(--s)) calc(50 * var(--s)) calc(50 * var(--s));
+    color: #EEE;
+    margin: 0 auto;
+    padding: 0 calc(2 * var(--m));
+    text-align: center;
+    width: fit-content;
+}
+
+h3 {
+    font-size: calc(30 * var(--s));
+    background-color: #4E555D;
+    color: #EEE;
+    padding: calc(.2 * var(--m)) calc(.4 * var(--m));
+    width: fit-content; /* Pour que la couleur d'arrière-plan ne prenne pas toute la ligne */
+}
+
+h4 {
+    font-size: calc(20 * var(--s));
+    text-decoration: underline;
+    margin: 0;
+}
+
+main > div {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+main aside {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+main ul {
+    padding: 0 2vw 0 0;
+    border-right: 4vw #4E555D solid;
+    margin: 0;
+    overflow-y: auto;
+}
+
+main li {
+    background-color: #D9D9D9;
+    border: 3px #4E555D solid;
+    list-style: none;
+    margin: var(--m) 0;
+    padding: var(--m) calc(.5 * var(--m));
+}
+
+time {
+    font-size: calc(20 * var(--s));
+    font-weight: bold;
+}
+
+figure {
+    margin: 0;
+    width: min-content;
+}
+
+figure, .bloc-encadre {
+    border: 3px #4E555D solid;
+    background-color: #D9D9D9;
+    margin: calc(.5 * var(--m));
+}
+
+figcaption, .bloc-encadre {
+    padding: calc(.5 * var(--m));
+}
+
+main article {
+    margin: var(--m) 0;
+}
+
+li > a:not(:has(> .ouvert)) {
+    cursor: pointer;
+}
+
+/* Classes */
+
+.bloc-principal {
+    margin: var(--m);
+    padding-left: 2.5vw;
+    border-left: 5vw #FF5722 solid;
+}
+
+.corps-de-texte {
+    margin-bottom: var(--m);
+    text-indent: var(--m);
+    line-height: calc(1ex / .32);
+    max-width: 65ch;
+}
+
+.corps-de-texte::first-letter {
+    font-size: calc(25 * var(--s));
+}
+
+.lien-retour {
+    display: block;
+    margin-left: auto;
+    width: fit-content;
+    background-color: #4E555D;
+    color: #EEE;
+    padding: calc(.6 * var(--m)) calc(.3 * var(--m));
+    font-size: calc(24 * var(--s));
+}
+
+.lien-retour:hover,
+.lien-retour:active {
+    background-color: #EEE;
+    border: #4E555D 2px solid;
+    color: #4E555D;
+}
+
+.zone-boutons {
+    text-align: right;
+}
+.zone-boutons > a {
+    background-color: #D9D9D9;
+    border-radius: calc(50 * var(--s));
+    border: 3px #4E555D solid;
+    display: inline-block;
+    font-size: calc(15 * var(--s));
+    padding: var(--m) calc(.5 * var(--m));
+    margin: calc(.25 * var(--m));
+    text-align: center;
+}
+.zone-boutons > a:hover,
+.zone-boutons > a:active {
+    color: #4E555D;
+}
+
+.pictogramme-age {
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    border: #FF5722 5px solid;
+    padding: var(--m);
+    text-align: center;
+}
+
+/* Footer */
+    footer {
+        padding: var(--m);
+        display: flex;
+        flex-flow: row wrap;
+        max-width: max-content;
+    }
+
+    address {
+        border-left: #FF5722 calc(20 * var(--s)) solid;
+        border-right: #FF5722 calc(20 * var(--s)) solid;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    address > div {
+        border-radius: calc(10 * var(--s));
+        font-style: normal;
+        padding: var(--m);
+        margin: calc(.5 * var(--m)) var(--m);
+        position: relative;
+        text-align: center;
+    }
+
+    address a {
+        color: lightblue;
+        font-size: calc(10 * var(--s));
+    }
+
+    footer nav {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    footer img {
+        margin: calc(.5 * var(--m)) var(--m);
+        height: calc(50 * var(--s));
+        width: calc(50 * var(--s));
+    }
+
+/* Styles spécifiques aux pages */
+
+/* Page détail saison */
+    /* Série */
+        #page-detail-saison #serie > div {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        #page-detail-saison #serie img {
+            width: calc(233 * var(--s));
+        }
+
+    /* Informations */
+        #page-detail-saison #informations {
+            margin-bottom: var(--m);
+        }
+        #page-detail-saison #informations p {
+            margin: 0;
+        }
+
+    /* Chiffres */
+        #page-detail-saison #chiffres > div {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        #page-detail-saison #chiffres > div > div {
+            background-color: #D9D9D9;
+            margin: calc(.5 * var(--m));
+            width: max-content;
+            font-weight: bold;
+            font-size: calc(24 * var(--s));
+            padding: 0 calc(.5 * var(--m));
+            text-align: center;
+        }
+
+        #page-detail-saison #chiffres > div > div p {
+            margin: 0;
+        }
+
+    /* Acteurs */
+        #page-detail-saison #acteurs ul{
+            max-height: calc(440 * var(--s));
+        }
+
+        #page-detail-saison #acteurs img {
+            border: 2px #4E555D solid;
+            height: calc(100 * var(--s));
+            width: calc(75 * var(--s));
+            object-fit: cover;
+            margin: var(--m);
+        }
+
+        #page-detail-saison #acteurs li > a > div {
+            display: none;
+        }
+
+        /* Style d'acteur ouvert */
+        #page-detail-saison #acteurs li > a > div.ouvert {
+            max-height: calc(500 * var(--s));
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        #page-detail-saison #acteurs li > a:has(> div.ouvert) > p {
+            font-size: 1.5em;
+        }
+
+    /* Épisodes */
+        #page-detail-saison #episodes {
+            max-height: calc(463 * var(--s));
+        }
+        #page-detail-saison #episodes li {
+            background-color: initial;
+            border: none;
+            margin: calc(13 * var(--s)) 0;
+            display: flex;
+            flex-flow: row wrap;
+        }
+        
+        #page-detail-saison #episodes img {
+            flex-shrink: 0;
+            flex-basis: calc(228 * var(--s));
+            margin-right : calc(17 * var(--s));
+            height: calc(90 * var(--s));
+            object-fit: cover;
+        }
+
+        /* Enfants du conteneur flex li */
+        #page-detail-saison #episodes li > a {
+            flex-grow: 1;
+            flex-basis: calc(228 * var(--s));
+            background-color: #D9D9D9;
+            border-radius: calc(20 * var(--s)) calc(50 * var(--s)) calc(20 * var(--s)) calc(50 * var(--s));
+            border: 3px #4E555D solid;
+            padding: 0 calc(25 * var(--s));
+            position: relative;
+        }
+
+        #page-detail-saison #episodes p {
+            margin: 0;
+            color: #4E555D;
+            margin-bottom: 2em; /* Empêche la superposition avec le time */
+        }
+
+        #page-detail-saison #episodes time {
+            position: absolute;
+            bottom: 0;
+            right: calc(10 * var(--s));
+        }
+    
+    /* Pop-up */
+        #overlay {
+            /* Rajoute un flou en arrière plan (ne fonctionne pas sur Firefox) */
+            backdrop-filter: blur(calc(8 * var(--s)));
+            bottom: 0;
+            display: none;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: -1;
+        }
+        #overlay.open {
+            display: block;
+            z-index: 2;
+        }
+        
+        /* Panneau */
+        #overlay > div {
+            /* Gris avec accent plus sombre pour différencier des couleurs de la page */
+            background-color:  #3e454dDD;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            border-radius: 1em;
+            filter: drop-shadow(6px 6px 4px #4e555d);
+            padding: var(--m);
+            box-sizing: border-box;
+            
+            transform: translate(-50%,-50%);
+
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+
+        /* Navigation */
+        #overlay nav {
+            text-align: right;
+        }
+
+        #overlay nav a {
+            background-color: #D9D9D9;
+            padding: 10px;
+            border-radius: calc(.5 * var(--m));
+            text-decoration: none;
+        }
+
+        /* Pictogramme age */
+        #overlay .pictogramme-age {
+            align-self: center;
+        }
+
+/* Page d'acceuil */
+    /* Style des images de série */
+        #page-index a > img {
+            width: 100%;
+            height: 100%;
+            border: #4E555D 3px solid;
+            display: block;
+        }
+
+        #page-index a:hover img {
+            width: 102%;
+            height: 102%;
+        }
+
+        #page-index div > section a:has(> img) {
+            width: 30vh;
+            height: 14vh;
+        }
+
+
+        #page-index a:has(> img) {
+            margin: calc(.5 * var(--m));
+            display: inline-block;
+        }
+
+    /* Aside */
+        #page-index aside {
+            width: 100%;
+        }
+
+        /* Série recommandées */
+        #page-index aside section:nth-child(1){
+            height: fit-content;
+            width: auto;
+        }
+
+        #page-index aside section:nth-child(1) img{
+            width: 6em;
+        }
+        
+        /* Catégorie */
+        #page-index aside section:nth-child(2){
+            height: fit-content;
+        }
+
+        /* scroll liste */
+        #page-index aside section:nth-child(2) ul {
+            height: 19em;
+            overflow-x: auto;
+        }
+
+        /* Sortie Récente */
+        #page-index aside section:nth-child(3) {
+            height: fit-content;
+        }
+
+        #page-index aside section:nth-child(3) img{
+            width: 6em;
+        }
+        
+        #page-index aside section:nth-child(3) div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+/* Page série */
+    /* ----------------logo +16----------------*/
+    #page-the-last-of-us #serie {
+        position: relative;
+    }
+
+    #page-the-last-of-us .pictogramme-age {
+        margin-left: auto;
+        width: fit-content;
+        position: absolute;
+        right: var(--m);
+        top: var(--m);
+    }
+
+    /* ----------------description----------------*/
+
+    #page-the-last-of-us section > div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    #page-the-last-of-us #serie > div div {
+        width: 50%;
+        max-height: 100%;
+        margin: 0 var(--m);
+    }
+
+    #page-the-last-of-us > div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #page-the-last-of-us #serie {
+        width: calc(200% / 3);
+        height: fit-content;
+    }
+
+    #page-the-last-of-us #img-affiche-mobile {
+        display: none;
+    }
+
+    #page-the-last-of-us img {
+        width: calc(200 * var(--s));
+        height: fit-content;
+    }
+
+    #page-the-last-of-us aside {
+        width: calc(100% / 3);
+
+        margin-right: 0;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        position: relative;
+    }
+
+/* Page Backstage */
+    #page-backstage aside figure {
+        border: none;
+    }
+
+    #page-backstage aside figure img {
+        border: 3px solid #111;
+        height: 8.35em;
+        width: auto;
+    }
+
+    #page-backstage figcaption {
+        border-top: 3px solid #111;
+        border-right: 3px solid #111;
+        border-left: 3px solid #111;
+        background-color: #4E555D;
+        color: #EEE;
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+        padding: calc(.25 * var(--m));
+    }
+
+/* Media queries (responsivité) */
+/* Point de bascule : moyenne entre PC (min 1280px) et portable (max 428px) */
+/* (1280+428)/2 = 854 */
+@media screen and (max-width: 854px) {
+    body {
+        margin: 0;
+    }
+    header, footer, main, section {
+        max-width: 100%;
+        margin: var(--m) 0;
+    }
+    :root {
+        --m: .75em;
+    }
+
+    /* Suppression des bordures décoratives */
+    .bloc-principal {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    main ul {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    /* Header */
+        header {
+            flex-wrap: wrap;
+            height: auto;
+        }
+        header nav {
+            background-color: #FF5722;
+            padding: var(--m);
+            margin: 0;
+            width: 100%;
+            filter: none;
+        }
+
+
+    /* Footer */
+        footer {
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+        footer address {
+            border: none;
+            flex-direction: column;
+        }
+        footer nav {
+            justify-content: center;
+        }
+
+    /* Page série */
+        #page-the-last-of-us div {
+            flex-direction: column;
+        }
+
+        #page-the-last-of-us aside, #page-the-last-of-us #serie {
+            width: auto;
+        }
+
+        #page-the-last-of-us section > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #page-the-last-of-us #serie div div, #page-the-last-of-us #serie img {
+            width: 100%;
+            height: auto;
+            margin: 0;
+        }
+
+        #page-the-last-of-us #img-affiche-mobile {
+            visibility: visible;
+            display: unset;
+            border: 2px solid #4E555D;
+        }
+
+        #page-the-last-of-us #img-affiche-pc {
+            visibility: hidden;
+            display: none;
+        }
+    
+    /* Page saison */
+        /* Masquer le bloc informations */
+        #page-detail-saison #chiffres {
+            display: none;
+        }
+
+        #page-detail-saison > div {
+            /* Retirer le flex */
+            display: unset;
+        }
+        
+        /* Masquer les descriptions des épisodes */
+        #page-detail-saison #episodes article.ouvert p {
+            text-align: justify;
+        }
+        #page-detail-saison #episodes article:not(.ouvert) p {
+            display: none;
+        }
+        #page-detail-saison #episodes article:not(.ouvert) time {
+            position: static;
+        }
+
+    /* Page d'acceuil */
+        #page-index > div {
+            flex-direction: column;
+        }
+
+        /*bloc principale*/
+        #page-index #en-avant div {
+            padding: 0;
+        }
+
+        #page-index #en-avant div img {
+            width: calc(200 * var(--s));
+            height: calc(100 * var(--s));
+            padding: 0;
+        }
+
+        /*Recommandé*/
+        #page-index aside section:nth-child(1) img {
+            width: calc(180 * var(--s));
+            height: calc(75 * var(--s));
+        }
+
+        /* Bloc Catégorie*/
+        #page-index aside section:nth-child(2){
+            order: 3;
+        }
+
+        #page-index aside section:nth-child(2) ul {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        #page-index aside section:nth-child(2) li {
+            width: calc(120 * var(--s));
+            text-align: center;
+            margin: calc(.5 * var(--m));
+        }
+
+        /*Sortie Récente*/
+        #page-index aside section:nth-child(3){
+            order: 2;
+        }
+
+        #page-index aside section:nth-child(3) img {
+            order: 2;
+            width: calc(206 * var(--s));
+            height: calc(80 * var(--s));
+        }
+
+    /* Backstage */
+        #page-backstage > div{
+            display: block;
+        }
+        
+        #page-backstage div > section{
+            height: fit-content;
+        }
+
+        #page-backstage aside div {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        
+}
